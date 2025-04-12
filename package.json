@@ -1,0 +1,30 @@
+{
+  "name": "lizzy-hairapy",
+  "version": "1.0.0",
+  "description": "A website showcasing hair products, where you view products, add to cart and place orders",
+  "main": "server.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/server.ts",
+    "start": "node dist/server.js"
+  },
+  "author": "tunji-solomon",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.6.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.1",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^22.13.16",
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.8.2"
+  }
+}
