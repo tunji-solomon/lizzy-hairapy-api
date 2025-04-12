@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema<UserPayload>({
     username : {
         type : String,
         required : true,
-        trim : true
+        trim : true,
     },
 
     email : {
@@ -22,10 +22,13 @@ const userSchema = new mongoose.Schema<UserPayload>({
 
 },
 
-{timestamps : true}
+{
+    timestamps : true,
+
+}
 
 )
 
-const User = mongoose.model<UserPayload>('user', userSchema)
+const User = mongoose.model<UserPayload>('shopper', userSchema)
 
 export default User

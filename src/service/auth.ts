@@ -23,10 +23,12 @@ class AuthService {
         payload.password = hashedPassword
 
         const newUser: any = await this.authrepo.create(payload)
+        const strignifiedUser = newUser.toJSON()
+        delete strignifiedUser.password
         return res.status(201).json({
             status : "Success",
             message : "Registration successful",
-            newUser
+            user : strignifiedUser
         })
     }
 
