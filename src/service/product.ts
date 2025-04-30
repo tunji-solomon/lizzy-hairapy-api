@@ -1,5 +1,6 @@
 import { ProductRepo } from "../repository";
 import { Response } from "express";
+import { Cloudinary } from "../utils";
 
 class ProductService {
     private readonly productRepo;
@@ -8,8 +9,13 @@ class ProductService {
         this.productRepo = new ProductRepo()
     }
 
-    async create (payload: any, res: Response) : Promise<object> {
+    async create (req : any, payload: any, res: Response) : Promise<object> {
 
+
+        const { imgUrl, publicId } = await Cloudinary.uploadToCloudinary(req.file.path, res)
+
+        payload.imgUrl = imgUrl,
+        payload.publicId = publicId
         await this.productRepo.create(payload)
 
         return res.status(201).json({

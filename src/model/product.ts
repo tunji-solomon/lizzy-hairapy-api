@@ -24,13 +24,18 @@ const productSchema = new mongoose.Schema<ProductPayload>({
         required : true
     },
 
-    image : {
+    imgUrl : {
+        type : String,
+        required : true
+    },
+
+    publicId : {
         type : String,
         required : true
     }
 
 })
 
-const Product = mongoose.model<ProductPayload>("product", productSchema)
+const Product = mongoose.model<ProductPayload>("Lizzy_products", productSchema)
 
 export default Product

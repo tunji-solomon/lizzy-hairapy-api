@@ -12,5 +12,6 @@ export interface ProductPayload {
     price : number,
     category : any,
     quantity : number,
-    image : string,
+    imgUrl : string,
+    publicId : string
 }
