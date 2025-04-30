@@ -1,12 +1,12 @@
 import { ProductService } from "../../service";
-import { Request, Response } from "express";
+import { Response } from "express";
 
-const getAll = async (req : Request, res : Response) : Promise<any> => {
+const allProduct = async (req : any, res : Response) : Promise<any> => {
 
     try {
 
-        const getAll = await ProductService.allProducts(res)
-        return getAll
+        const allProduct = await ProductService.allProducts(req, res)
+        return allProduct
         
     } catch (error) {
         console.log(error)
@@ -18,4 +18,4 @@ const getAll = async (req : Request, res : Response) : Promise<any> => {
 
 }
 
-export default getAll
+export default allProduct

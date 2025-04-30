@@ -1,7 +1,7 @@
 import { UserPayload } from "../interfaces";
 import Joi from 'joi';
 
-class UserSchema {
+class AuthSchema {
     static passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\dA-Za-z]).{8,15}$/
 
     register = (payload : UserPayload) => {
@@ -15,8 +15,9 @@ class UserSchema {
                         .required(),
             password : Joi.string()
                         .label("Password must contain special character and must be minimum of 8")
-                        .pattern(UserSchema.passwordRegex)
+                        .pattern(AuthSchema.passwordRegex)
                         .required(),
+            role : Joi.string(),
             confirm :  Joi.ref("password")
 
         }).with("password", "confirm")
@@ -25,4 +26,4 @@ class UserSchema {
     }
 }
 
-export default new UserSchema ()
+export default new AuthSchema ()

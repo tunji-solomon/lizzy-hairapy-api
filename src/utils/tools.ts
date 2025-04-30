@@ -1,6 +1,7 @@
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken'
 import { env } from '../config';
+import { Response } from 'express';
 
 const hashPassword = async (password : string) : Promise<string> => {
     const salt = await bcrypt.genSalt(12)
@@ -17,8 +18,36 @@ const generateToken = (payload : any, time : any) : string => {
     return token
 }
 
+const checkToken = (req : any) => {
+
+    const header = req.headers?.authorization
+    
+    if(header&& header.split(" ")[0] === "Bearer"
+    ) {
+        return header.split(" ")[1]
+    }
+        return null
+}
+
+const verifyToken = (token : string) : any => {
+
+    return jwt.verify(token, String(env.JWT_SECRET))
+}
+
+const logger = (error : any, res : Response) => {
+    console.log(`SERVER ERROR: `,error)
+    return res.status(500).json({
+        status: 'failed',
+        message: 'something went wrong, Try again later'
+    })  
+}
+
+
 export {
     hashPassword,
     comparePassword,
-    generateToken
+    generateToken,
+    checkToken,
+    verifyToken,
+    logger
 }

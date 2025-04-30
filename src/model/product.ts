@@ -3,7 +3,7 @@ import { ProductPayload } from "../interfaces";
 
 const productSchema = new mongoose.Schema<ProductPayload>({
 
-    name : {
+    label : {
         type : String,
         required : true,
         trim : true

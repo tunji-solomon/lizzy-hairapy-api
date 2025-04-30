@@ -18,6 +18,11 @@ const userSchema = new mongoose.Schema<UserPayload>({
     password : {
         type : String,
         required : true
+    },
+    
+    role : {
+        type : String,
+        default : "user"
     }
 
 },
@@ -29,6 +34,6 @@ const userSchema = new mongoose.Schema<UserPayload>({
 
 )
 
-const User = mongoose.model<UserPayload>('shopper', userSchema)
+const User = mongoose.model<UserPayload>('lizzy-user', userSchema)
 
 export default User

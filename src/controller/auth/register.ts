@@ -1,10 +1,10 @@
 import { AuthService } from "../../service";
 import { Request, Response } from "express";
-import { UserSchema } from "../../schema";
+import { AuthSchema } from "../../schema";
 
 const register = async (req : Request, res : Response) :Promise<any> => {
     try {
-        const { error } = UserSchema.register(req.body)
+        const { error } = AuthSchema.register(req.body)
         if(error){
             return res.status(400).json({
                 status : "Failed",

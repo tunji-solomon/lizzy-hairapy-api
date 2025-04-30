@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { ProductController } from "../controller";
-import { multerMiddleware } from "../middleware";
+import { multerMiddleware, authMiddleware } from "../middleware";
 
 const router = Router()
-router.use(multerMiddleware.single("image"))
-router.post("/create", ProductController.create)
-router.get("/products", ProductController.getAll)
+router.get("/products", ProductController.allProduct)
+router.use(authMiddleware.authenticate, authMiddleware.isAdmin, multerMiddleware.single("image"))
+router.post("/add", ProductController.addProduct)
+router.delete('/delete/:id',ProductController.deleteProduct)
 
 export default router

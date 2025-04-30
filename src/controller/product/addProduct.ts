@@ -1,7 +1,7 @@
 import { ProductService } from "../../service";
 import { Response } from "express";
 
-const create = async (req : any, res : Response)  : Promise<any> => {
+const addProduct = async (req : any, res : Response)  : Promise<any> => {
 
     try {
 
@@ -12,7 +12,7 @@ const create = async (req : any, res : Response)  : Promise<any> => {
             })
         }
 
-        const create = await ProductService.create(req, req.body, res)
+        const create = await ProductService.addProduct(req, req.body, res)
         return create
         
     } catch (error) {
@@ -26,4 +26,4 @@ const create = async (req : any, res : Response)  : Promise<any> => {
 
 }
 
-export default create
+export default addProduct
