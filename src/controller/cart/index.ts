@@ -1,1 +1,2 @@
-export { default as CartController } from './cart'
+export * as CartController from './cart'
+
