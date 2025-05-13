@@ -2,10 +2,10 @@ import { Request, Response } from "express";
 import { CheckoutService } from "../../service";
 import { logger } from "../../utils/tools";
 
-const reviewCart = async (req : Request, res : Response) : Promise<any> => {
+const payment = async (req : Request, res : Response) : Promise<any> => {
     try {
 
-        const reviewed = await CheckoutService.reviewCart(res)
+        const reviewed = await CheckoutService.payment(res)
         return reviewed
         
     } catch (error) {
@@ -13,4 +13,4 @@ const reviewCart = async (req : Request, res : Response) : Promise<any> => {
     }
 }
 
-export default reviewCart
+export default payment

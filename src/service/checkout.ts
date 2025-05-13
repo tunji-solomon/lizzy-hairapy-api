@@ -34,6 +34,18 @@ class CheckoutService {
             }
         })
     }
+
+    async payment (res : Response) : Promise<object> {
+
+        return res.status(200).json({
+            message : "Success",
+            data : {
+                'account name' : "Test",
+                'Account number' : '###########',
+                'Bank' : 'testBank'
+            }
+        })
+    }
 }
 
 export default new CheckoutService ()
