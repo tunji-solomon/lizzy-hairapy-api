@@ -2,6 +2,7 @@ import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken'
 import { env } from '../config';
 import { Response } from 'express';
+import { idText } from 'typescript';
 
 const hashPassword = async (password : string) : Promise<string> => {
     const salt = await bcrypt.genSalt(12)
@@ -42,6 +43,19 @@ const logger = (error : any, res : Response) => {
     })  
 }
 
+const generateId = () => {
+
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz"
+    let uniqueId = ""
+    while (uniqueId.length < 6){
+        let random = Math.floor(Math.random() * characters.length)
+        uniqueId += characters[random]
+    }
+  
+    return uniqueId
+  
+  }
+
 
 export {
     hashPassword,
@@ -49,5 +63,6 @@ export {
     generateToken,
     checkToken,
     verifyToken,
-    logger
+    logger,
+    generateId
 }

@@ -16,3 +16,14 @@ export interface ProductPayload {
     imgUrl : string,
     publicId : string
 }
+
+export interface OrderPayload {
+    id? : string,
+    username : string,
+    orderId : string,
+    products : any,
+    totalCost : number,
+    paymentReceiptUrl : string,
+    publicId : string,
+    paymentConfirmed : boolean
+}

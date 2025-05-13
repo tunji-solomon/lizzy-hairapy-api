@@ -1,14 +1,12 @@
 import { Response } from "express";
-import { CartRepo, ProductRepo } from "../repository";
+import { CartRepo } from "../repository";
 
 
 class CheckoutService {
 
-    private readonly productRepo
     private readonly cartRepo
 
     constructor () {
-        this.productRepo = new ProductRepo()
         this.cartRepo = new CartRepo()
     }
 
@@ -46,6 +44,7 @@ class CheckoutService {
             }
         })
     }
+
 }
 
-export default new CheckoutService ()
+export default new CheckoutService()
