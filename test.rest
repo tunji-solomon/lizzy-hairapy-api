@@ -1,0 +1,32 @@
+// Home page
+# GET http://localhost:1998
+
+//Registration page
+# POST http://127.0.0.1:1998/auth/register
+# Content-Type: application/json
+
+# {
+#     "username" : "tunjeey",
+#     "email" : "tunji@test.com",
+#     "password" : "Tunejeey@1",
+#     "confirm" : "Tunejeey@1"
+# }
+
+//login page
+# POST http://127.0.0.1:1998/auth/login
+# Content-Type: application/json
+
+# {
+#     "email" : "tunji@test.com",
+#     "password" : "Tunejeey@1"
+# }
+
+
+//all product page
+# GET http://127.0.0.1:1998/product/products
+# Content-Type: application/json
+
+//add product 
+GET http://127.0.0.1:1998/product/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Mzk2ZmY1NDZiNzdmN2U1MmQ0NTVkZSIsInVzZXJuYW1lIjoidHVuamVleSIsImVtYWlsIjoidHVuamlAdGVzdC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0ODU5NTMwOCwiZXhwIjoxNzQ4NTk3MTA4fQ.mZONrhjIbnL9IF4xBVxKt0oCD9CO16DhiluCn2Wlx50
