@@ -3,9 +3,11 @@ import { env } from './config'
 import routes from './route'
 import { dbConnect } from './datasource'
 
+
 const Port = env.PORT || 1998
 const app : Express = express ()
 
+// database connection
 dbConnect()
 
 app.get('', (req : any , res : any) => {

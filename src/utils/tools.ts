@@ -2,7 +2,6 @@ import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken'
 import { env } from '../config';
 import { Response } from 'express';
-import { idText } from 'typescript';
 
 const hashPassword = async (password : string) : Promise<string> => {
     const salt = await bcrypt.genSalt(12)
